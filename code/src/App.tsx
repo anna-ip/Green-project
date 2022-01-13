@@ -1,4 +1,4 @@
-import React, { VoidFunctionComponent } from "react";
+import React from "react";
 
 const App = () => {
   const message: string = "Hello World 🎉";

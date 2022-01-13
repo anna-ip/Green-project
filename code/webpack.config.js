@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   // the output bundle won't be optimized for production but suitable for development
-  mode: "development",
+  // mode: "development",
+  mode: "production",
   // the app entry point is /src/index.js
   entry: path.resolve(__dirname, "src", "index.tsx"),
   output: {
@@ -21,12 +22,9 @@ module.exports = {
         use: "ts-loader",
         // ignore transpiling JavaScript from node_modules as it should be that state
         exclude: /node_modules/,
+        // ? Maybe remove/uninstall babel-loader
         // use the babel-loader for transpiling JavaScript to a suitable format
-        // loader: "babel-loader",
-        // options: {
-        //   // attach the presets to the loader (most projects use .babelrc file instead)
-        //   presets: ["@babel/preset-env", "@babel/preset-react"],
-        // },
+        // loader: "babel-loader"
       },
     ],
   },
