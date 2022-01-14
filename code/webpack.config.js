@@ -33,6 +33,6 @@ module.exports = {
   },
   // add a custom index.html as the template
   plugins: [
-    new HtmlWebpackPlugin({ template: "./public/index.html", inject: "body" }),
+    new HtmlWebpackPlugin({ template: "./src/index.html", inject: "body" }),
   ],
 };
