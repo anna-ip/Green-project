@@ -1,7 +1,7 @@
 import React from "react";
 
 const App = () => {
-  const message: string = "Hello World ✨";
+  const message = "Hello World ✨";
   return (
     <>
       <h1>{message}</h1>
