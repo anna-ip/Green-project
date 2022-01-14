@@ -1,6 +1,7 @@
 {
   "name": "green-project",
   "version": "1.0.0",
+  "homepage": "https://green-project-2ez2lj321-anna-ip.vercel.app/",
   "description": "",
   "main": "index.tsx",
   "scripts": {
