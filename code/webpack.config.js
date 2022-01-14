@@ -8,7 +8,7 @@ module.exports = {
   // the app entry point is /src/index.js
   entry: path.resolve(__dirname, "src", "index.tsx"),
   output: {
-    // the output of the webpack build will be in /dist directory
+    // the output of the webpack build will be in /dist directory, All the files in the src folder will get transpiled into the bundle.js file inside the dist folder.
     path: path.resolve(__dirname, "dist"),
     // the filename of the JS bundle will be bundle.js
     filename: "bundle.js",
@@ -32,5 +32,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"],
   },
   // add a custom index.html as the template
-  plugins: [new HtmlWebpackPlugin({ template: "./public/index.html" })],
+  plugins: [
+    new HtmlWebpackPlugin({ template: "./public/index.html", inject: "body" }),
+  ],
 };
