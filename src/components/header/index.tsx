@@ -1,5 +1,7 @@
 import React from "react";
 
+// needs a navbar and styling
+
 const Header = () => {
   return (
     <div>

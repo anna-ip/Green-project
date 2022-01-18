@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "production",
@@ -27,6 +28,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({ template: "./public/index.html", inject: "body" }),
   ],
 };

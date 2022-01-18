@@ -1,13 +1,3 @@
-export interface TechCrunchNews {
-  author: string;
-  title: string;
-  description: string;
-  url: string;
-  urlToImage: string;
-  publishedAt: string;
-  content: string;
-}
-
 interface ServiceInit {
   status: "init";
 }
@@ -16,6 +6,7 @@ interface ServiceLoading {
 }
 interface ServiceLoaded<T> {
   status: "loaded";
+  //using a generic to be able to store any data as payload
   payload: T;
 }
 interface ServiceError {
