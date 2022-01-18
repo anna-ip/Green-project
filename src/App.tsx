@@ -1,10 +1,10 @@
 import React from "react";
+import { LandingPage } from "./pages/landingPage";
 
 const App = () => {
-  const message = "Hello World ✨";
   return (
     <>
-      <h1>{message}</h1>
+      <LandingPage />
     </>
   );
 };
