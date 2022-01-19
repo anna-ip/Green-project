@@ -3,7 +3,7 @@ import { TechCrunchNews } from "./types/techNewsTypes";
 import { Service } from "./types/service";
 
 export interface News {
-  results: TechCrunchNews[];
+  articles: TechCrunchNews[];
 }
 
 const useTechCrunchService = () => {

@@ -1,12 +1,14 @@
 import React from "react";
+import { BackgroundImage, HeaderContainer, HeaderTitle } from "./styles";
 
 // needs a navbar and styling
 
 const Header = () => {
   return (
-    <div>
-      <h1>News</h1>
-    </div>
+    <HeaderContainer>
+      <BackgroundImage />
+      <HeaderTitle>Tech News</HeaderTitle>
+    </HeaderContainer>
   );
 };
 

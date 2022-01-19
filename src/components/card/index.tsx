@@ -1,10 +1,7 @@
 import React from "react";
 import Card from "./card";
-import { CardContainer } from "./styles";
+import { CardContainer, ErrorText } from "./styles";
 import useTechCrunchService from "../hooks/useTechCrunchService";
-
-//Here I need to fetch the API
-// populate the cards with info/news
 
 const Index: React.FC<{}> = () => {
   const service = useTechCrunchService();
@@ -14,11 +11,15 @@ const Index: React.FC<{}> = () => {
       {service.status === "loading" && <div>Loading...</div>}
       <CardContainer>
         {service.status === "loaded" &&
-          service.payload.results?.map((result) =>
-            console.log("result:", result)
-          )}
-        <Card />
+          service.payload.articles.map((result, index) => (
+            <div key={index}>
+              <Card result={result} />
+            </div>
+          ))}
       </CardContainer>
+      {service.status === "error" && (
+        <ErrorText>No news at the moment</ErrorText>
+      )}
     </>
   );
 };

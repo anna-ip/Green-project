@@ -1,7 +1,7 @@
 import React from "react";
 import { Footer } from "../../components/footer/footer";
 import { Header } from "../../components/header";
-import { CardSection } from "../../components/cards/index";
+import { CardSection } from "../../components/card/index";
 
 const LandingPage = () => {
   return (
