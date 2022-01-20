@@ -18,7 +18,6 @@ const useTechCrunchService = () => {
     .then(res => setResult({status: 'loaded', payload: res}))
     .catch(error => setResult({status: 'error', error}))
   }, []);
-  console.log('inside hook', result)
   return result;
 };
 

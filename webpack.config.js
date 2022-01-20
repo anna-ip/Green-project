@@ -1,11 +1,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable no-undef */
+const prod = process.env.NODE_ENV === "production";
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  mode: "production",
+  mode: prod ? "production" : "development",
+  // mode: "production",
   // the app entry point is /src/index.tsx
   entry: path.resolve(__dirname, "src", "index.tsx"),
   output: {
@@ -18,9 +20,12 @@ module.exports = {
     rules: [
       {
         // for any file with a suffix of tsx
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)$/,
         use: "ts-loader",
         exclude: /node_modules/,
+        resolve: {
+          extensions: [".tsx", ".ts", ".js", ".json"],
+        },
       },
       {
         test: /\.css$/i,
@@ -36,9 +41,8 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
+  devtool: prod ? undefined : "source-map",
+
   plugins: [
     new Dotenv({
       systemvars: true,
