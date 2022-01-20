@@ -9,7 +9,7 @@ export interface News {
 const useTechCrunchService = () => {
   const [result, setResult] = useState< Service <News> > ({ status: "loading" });
 
-  const key = process.env.TECH_CRUNCH_API_KEY
+  const key = process.env.REACT_APP_TECH_CRUNCH_API_KEY
   const url = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${key}`
 
   useEffect(() => {
