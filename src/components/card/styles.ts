@@ -6,7 +6,7 @@ const desktopUp = "min-width: 1200px";
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 
   position: absolute;
   top: 365px;
@@ -22,7 +22,7 @@ export const ErrorText = styled.p``;
 export const CardWrapper = styled.div`
   border-radius: 8px 0px 0px 40px;
   background: #edf3ef; /* add a random background color function */
-  padding: 15px;
+  padding: 15px 15px 15px 25px;
   margin: 0 8px 0 15px;
 
   &:before {
@@ -36,12 +36,12 @@ export const CardWrapper = styled.div`
     box-shadow: 0 20px 0 0 #edf3ef;
   }
 `;
-export const Title = styled.h3`
+export const Title = styled.h2`
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  color: #3a3a3a;
+  font-weight: 500;
+  color: #585654;
 `;
-export const Article = styled.p`
+export const Article = styled.h3`
   font-family: "Roboto", sans-serif;
   font-weight: 300;
 `;

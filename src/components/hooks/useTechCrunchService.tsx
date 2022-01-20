@@ -10,9 +10,10 @@ const useTechCrunchService = () => {
   const [result, setResult] = useState< Service <News> > ({ status: "loading" });
 
   const key = process.env.TECH_CRUNCH_API_KEY
+  const url = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${key}`
 
   useEffect(() => {
-    fetch(`https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${key}`)
+    fetch(url)
     .then(res => res.json())
     .then(res => setResult({status: 'loaded', payload: res}))
     .catch(error => setResult({status: 'error', error}))

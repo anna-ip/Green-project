@@ -7,7 +7,7 @@ const Card = (props: CardProps) => {
   return (
     <CardWrapper>
       <Title>{result.title}</Title>
-      <Article>{result.description}</Article>
+      <Article>by {result.author}</Article>
     </CardWrapper>
   );
 };
