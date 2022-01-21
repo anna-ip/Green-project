@@ -19,7 +19,7 @@ export const BackgroundImage = styled.div`
   background-size: cover;
   /* Move border radius to the page container */
 
-  @media (${desktopUp}) {
+  @media (${tabletUp}) {
     background-image: url(${backgroundImageDesktop});
     aspect-ratio: 960/300;
     border-radius: 8px 8px 0px 0px;
@@ -28,7 +28,7 @@ export const BackgroundImage = styled.div`
 
 export const HeaderTitle = styled.h1`
   position: absolute;
-  bottom: 95px;
+  top: 55%;
   left: 16px;
   font-family: "Roboto", sans-serif;
   color: #f3f1ee;
@@ -37,7 +37,7 @@ export const HeaderTitle = styled.h1`
 
   @media (${tabletUp}) {
     font-size: 4rem;
-    bottom: 50px;
+    top: 45%;
   }
   @media (${desktopUp}) {
     font-size: 8rem;
