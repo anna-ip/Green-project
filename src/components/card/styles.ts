@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const mobile = "max-width: 767px";
 const tabletUp = "min-width: 768px";
-const desktopUp = "min-width: 1200px";
 
 export const CardContainer = styled.div`
   display: flex;
@@ -23,16 +22,24 @@ export const CardContainer = styled.div`
 
 export const ErrorText = styled.p``;
 
+export const FlipCardInner = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.9s;
+  transform-style: preserve-3d;
+`;
+
 export const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   border-radius: 8px 0px 0px 40px;
-  background: #edf3ef; /* add a random background color function */
   padding: 15px 15px 15px 25px;
   margin: 0 8px 0 15px;
   min-height: 200px;
   cursor: pointer;
+  background: #edf3ef; /* add a random background color function */
 
   @media (${mobile}) {
     &:before {
@@ -52,6 +59,39 @@ export const CardWrapper = styled.div`
     width: 15rem;
     height: 260px;
     justify-content: space-between;
+  }
+
+  &:hover ${FlipCardInner} {
+    transform: rotateY(180deg);
+  }
+`;
+
+const cardDesign = css`
+  position: absolute;
+  bottom: 80px;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  background: #edf3ef; /* add a random background color function */
+`;
+export const FlipCardFront = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  ${cardDesign}
+
+  @media (${tabletUp}) {
+    bottom: 0;
+  }
+`;
+
+export const FlipCardBack = styled.div`
+  ${cardDesign}
+  transform: rotateY(180deg);
+
+  @media (${tabletUp}) {
+    bottom: 0;
   }
 `;
 export const Title = styled.h2`
