@@ -9,9 +9,10 @@ export const Container = styled.div`
   justify-content: center;
   min-height: 50px;
   width: 100%;
-  background: #7cbd97;
+  background: #518d7a;
   border-radius: 0 0 8px 8px;
   margin-bottom: 5px;
+  color: #f3f1ee;
 
   @media (${tabletUp}) {
     padding: 20px 0;

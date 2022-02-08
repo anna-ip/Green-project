@@ -1,4 +1,4 @@
-export interface TechCrunchNews {
+export interface MediaStackNews {
   author: string;
   title: string;
   description: string;

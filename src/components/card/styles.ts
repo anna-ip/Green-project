@@ -87,6 +87,7 @@ export const FlipCardFront = styled.div`
 `;
 
 export const FlipCardBack = styled.div`
+  padding-bottom: 15px;
   ${cardDesign}
   transform: rotateY(180deg);
 
@@ -102,4 +103,5 @@ export const Title = styled.h2`
 export const Article = styled.h3`
   font-family: "Roboto", sans-serif;
   font-weight: 300;
+  margin: 0;
 `;
