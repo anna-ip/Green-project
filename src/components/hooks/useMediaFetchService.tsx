@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { TechCrunchNews } from "./types/techNewsTypes";
+import { MediaStackNews } from "./types/techNewsTypes";
 import { Service } from "./types/service";
 
 export interface News {
-  articles: TechCrunchNews[];
+  data: MediaStackNews[];
 }
 
-const useTechCrunchService = () => {
+const useMediaFetchService = () => {
   const [result, setResult] = useState< Service <News> > ({ status: "loading" });
 
-  const key = process.env.REACT_APP_TECH_CRUNCH_API_KEY
-  const url = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${key}`
+  const key = process.env.REACT_APP_MEDIA_STACK_API_KEY
+  const url = `http://api.mediastack.com/v1/news?access_key=${key}&technology&sources=en&keywords=tech`
 
   useEffect(() => {
     fetch(url)
@@ -21,4 +21,4 @@ const useTechCrunchService = () => {
   return result;
 };
 
-export default useTechCrunchService;
+export default useMediaFetchService;

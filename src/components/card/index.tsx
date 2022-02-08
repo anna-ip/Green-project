@@ -1,17 +1,17 @@
 import React from "react";
 import Card from "./card";
 import { CardContainer, ErrorText } from "./styles";
-import useTechCrunchService from "../hooks/useTechCrunchService";
+import useMediaFetchService from "../hooks/useMediaFetchService";
 
 const Index: React.FC<{}> = () => {
-  const service = useTechCrunchService();
+  const service = useMediaFetchService();
   console.log("service:", service);
   return (
     <>
       {service.status === "loading" && <div>Loading...</div>}
       <CardContainer>
         {service.status === "loaded" &&
-          service.payload.articles.map((result, index) => (
+          service.payload.data.map((result, index) => (
             <div key={index}>
               <Card result={result} />
             </div>

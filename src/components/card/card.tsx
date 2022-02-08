@@ -7,7 +7,7 @@ import {
   FlipCardBack,
   FlipCardInner,
 } from "./styles";
-import { TechCrunchNews } from "../hooks/types/techNewsTypes";
+import { MediaStackNews } from "../hooks/types/techNewsTypes";
 
 const Card = (props: CardProps) => {
   const { result } = props;
@@ -16,7 +16,7 @@ const Card = (props: CardProps) => {
       <FlipCardInner>
         <FlipCardFront>
           <Title>{result.title}</Title>
-          <Article>by {result.author}</Article>
+          {result.author && <Article>by {result.author}</Article>}
         </FlipCardFront>
         <FlipCardBack>
           <Article>{result.description}</Article>
@@ -27,7 +27,7 @@ const Card = (props: CardProps) => {
 };
 
 interface CardProps {
-  result: TechCrunchNews;
+  result: MediaStackNews;
 }
 
 export default Card;
