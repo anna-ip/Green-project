@@ -18,6 +18,7 @@ const useMediaFetchService = () => {
     .then(res => setResult({status: 'loaded', payload: res}))
     .catch(error => setResult({status: 'error', error}))
   }, []);
+
   return result;
 };
 

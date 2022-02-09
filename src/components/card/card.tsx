@@ -6,21 +6,32 @@ import {
   FlipCardFront,
   FlipCardBack,
   FlipCardInner,
+  LinkToNYT,
+  Author,
+  Image,
+  Container,
 } from "./styles";
 import { MediaStackNews } from "../hooks/types/techNewsTypes";
 
 const Card = (props: CardProps) => {
   const { result } = props;
+
   return (
     <CardWrapper>
       <FlipCardInner>
         <FlipCardFront>
-          <Title>{result.title}</Title>
-          <Article>by {result.byline}</Article>
+          <Container>
+            <Title>{result.title}</Title>
+            {result.media.map((meta) => (
+              <Image src={meta["media-metadata"][1].url} alt={meta.caption} />
+            ))}
+          </Container>
+          <Author>{result.byline}</Author>
         </FlipCardFront>
         <FlipCardBack>
           <Article>{result.abstract}</Article>
-          <Article>by {result.byline}</Article>
+          <Author>{result.byline}</Author>
+          <LinkToNYT href={result.url}>{result.url}</LinkToNYT>
         </FlipCardBack>
       </FlipCardInner>
     </CardWrapper>

@@ -66,6 +66,17 @@ export const CardWrapper = styled.div`
   }
 `;
 
+export const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+
+  @media (${tabletUp}) {
+    flex-direction: column;
+  }
+`;
+
 const cardDesign = css`
   position: absolute;
   bottom: 80px;
@@ -87,22 +98,55 @@ export const FlipCardFront = styled.div`
 `;
 
 export const FlipCardBack = styled.div`
-  padding-bottom: 15px;
   ${cardDesign}
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
   transform: rotateY(180deg);
 
   @media (${tabletUp}) {
     bottom: 0;
-    padding-bottom: 0;
   }
 `;
 export const Title = styled.h2`
   font-family: "Roboto", sans-serif;
   font-weight: 500;
+  font-size: 1.2rem;
   color: #585654;
+  width: 100%;
+  padding-right: 10px;
+  margin: 0;
 `;
 export const Article = styled.h3`
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   margin: 0;
+`;
+export const Author = styled.h5`
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  padding-top: 5px;
+  margin: 0;
+`;
+
+export const LinkToNYT = styled.a`
+  word-break: break-all;
+  color: #518d7a;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  min-width: 75px;
+  max-width: 320px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px 0px 0px 40px;
+
+  @media (${tabletUp}) {
+    height: 120px;
+    border-radius: 8px;
+  }
 `;

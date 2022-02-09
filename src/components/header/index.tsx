@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <BackgroundImage />
-      <HeaderTitle>Tech News</HeaderTitle>
+      <HeaderTitle>News</HeaderTitle>
     </HeaderContainer>
   );
 };

@@ -1,11 +1,18 @@
+type MetaType = {
+  url: string,
+};
+type MediaType = {
+  "media-metadata": MetaType[],
+  caption: string,
+};
 export interface MediaStackNews {
-  byline: string;
+  url: string;
+  section: string;
+  byline: string; //author
   title: string;
   abstract: string;
-  url: string;
-  urlToImage: string;
   published_date: string;
   source: string;
-  section: string;
-  subsection: string;
+  id: number;
+  media: MediaType[];
 }
