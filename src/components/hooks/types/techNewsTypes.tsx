@@ -1,9 +1,11 @@
 export interface MediaStackNews {
-  author: string;
+  byline: string;
   title: string;
-  description: string;
+  abstract: string;
   url: string;
   urlToImage: string;
-  publishedAt: string;
-  content: string;
+  published_date: string;
+  source: string;
+  section: string;
+  subsection: string;
 }

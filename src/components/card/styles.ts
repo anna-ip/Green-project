@@ -93,6 +93,7 @@ export const FlipCardBack = styled.div`
 
   @media (${tabletUp}) {
     bottom: 0;
+    padding-bottom: 0;
   }
 `;
 export const Title = styled.h2`

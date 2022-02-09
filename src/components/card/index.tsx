@@ -11,7 +11,7 @@ const Index: React.FC<{}> = () => {
       {service.status === "loading" && <div>Loading...</div>}
       <CardContainer>
         {service.status === "loaded" &&
-          service.payload.data.map((result, index) => (
+          service.payload.results.map((result, index) => (
             <div key={index}>
               <Card result={result} />
             </div>

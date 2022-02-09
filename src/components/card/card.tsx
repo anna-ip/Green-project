@@ -16,10 +16,11 @@ const Card = (props: CardProps) => {
       <FlipCardInner>
         <FlipCardFront>
           <Title>{result.title}</Title>
-          {result.author && <Article>by {result.author}</Article>}
+          <Article>by {result.byline}</Article>
         </FlipCardFront>
         <FlipCardBack>
-          <Article>{result.description}</Article>
+          <Article>{result.abstract}</Article>
+          <Article>by {result.byline}</Article>
         </FlipCardBack>
       </FlipCardInner>
     </CardWrapper>
