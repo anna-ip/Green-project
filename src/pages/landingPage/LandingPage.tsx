@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer } from "../../components/footer/footer";
+import { Footer } from "../../components/footer/Footer";
 import { Header } from "../../components/header";
 import { CardSection } from "../../components/card/index";
 import { Wrapper } from "./styles";

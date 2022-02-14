@@ -104,5 +104,5 @@
   },
   //not sure if this is correct
   "exclude": ["node_modules", "**/*.spec.ts"],
-  "include": ["../**/*.tsx", "../**/custom.d.ts"]
+  "include": ["../**/*.tsx", "../**/custom.d.ts", "src/components/search/Search.tsx"]
 }

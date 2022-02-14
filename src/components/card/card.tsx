@@ -23,7 +23,11 @@ const Card = (props: CardProps) => {
           <Container>
             <Title>{result.title}</Title>
             {result.media.map((meta) => (
-              <Image src={meta["media-metadata"][1].url} alt={meta.caption} />
+              <Image
+                key={meta.caption}
+                src={meta["media-metadata"][1].url}
+                alt={meta.caption}
+              />
             ))}
           </Container>
           <Author>{result.byline}</Author>

@@ -13,7 +13,7 @@ const useMediaFetchService = () => {
   const url = `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${key}`
 
   useEffect(() => {
-    fetch(url)
+    fetch('https://api.nytimes.com')
     .then(res => res.json())
     .then(res => setResult({status: 'loaded', payload: res}))
     .catch(error => setResult({status: 'error', error}))
