@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LandingPage } from "./pages/landingPage/LandingPage";
 import { SearchedArticlePage } from "./pages/landingPage/SearchedArticlePage";
 
@@ -6,8 +7,10 @@ import { SearchedArticlePage } from "./pages/landingPage/SearchedArticlePage";
 const App = () => {
   return (
     <>
-      <LandingPage />
-      <SearchedArticlePage />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="search" element={<SearchedArticlePage />} />
+      </Routes>
     </>
   );
 };

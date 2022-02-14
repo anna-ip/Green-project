@@ -10,6 +10,7 @@ module.exports = {
   // mode: "production",
   // the app entry point is /src/index.tsx
   entry: path.resolve(__dirname, "src", "index.tsx"),
+
   output: {
     // All the files in the src folder will get transpiled into the bundle.js file inside the build folder.
     path: path.resolve(__dirname, "build"),
@@ -49,4 +50,12 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({ template: "./public/index.html", inject: "body" }),
   ],
+  devServer: {
+    static: "./build",
+    hot: false,
+    // inline: true,
+    // transportMode: "ws",
+    // injectClient: false,
+    // overlay: true,
+  },
 };

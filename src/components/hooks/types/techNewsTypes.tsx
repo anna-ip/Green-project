@@ -16,3 +16,7 @@ export interface MediaStackNews {
   id: number;
   media: MediaType[];
 }
+
+export interface FetchResults {
+  results: MediaStackNews[];
+}
