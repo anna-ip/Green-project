@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import {
+  Link,
+  Route,
+  Router,
+  Routes,
+  Navigate,
+  useNavigate,
+} from "react-router-dom";
 import { Footer } from "./components/footer/Footer";
 import { Header } from "./components/header";
 import useMediaFetchService from "./components/hooks/useMediaFetchService";
@@ -7,18 +14,17 @@ import useSearchFetchService from "./components/hooks/useSearchFetchService";
 import { LandingPage } from "./pages/landingPage/LandingPage";
 import { SearchedArticlePage } from "./pages/landingPage/SearchedArticlePage";
 
-const onSuccess = (data: any) => {
-  console.log("Route to search page and display data", data);
-  <Link to={"/search"} />;
+const onSuccess = (searchData: any) => {
+  console.log("Route to search page and display data", searchData);
 };
 
 //? Add routes SearchedArticlePage should have a search/${query} route
 const App = () => {
   const [query, setQuery] = useState("");
-  const { data, status, isLoading, error, isFetching } = useMediaFetchService();
 
+  const { data, status, isLoading, error, isFetching } = useMediaFetchService();
   const {
-    data: searchData,
+    data: searchData = [],
     status: searchStatus,
     isLoading: searchIsLoading,
     error: searchError,
@@ -31,10 +37,10 @@ const App = () => {
     "searchedPageData:",
     query,
     searchData,
-    searchIsLoading,
-    searchIsFetch,
-    searchStatus,
-    searchError
+    // searchIsLoading,
+    // searchIsFetch,
+    searchStatus
+    // searchError
   );
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -59,6 +65,7 @@ const App = () => {
             />
           }
         />
+
         <Route
           path="/search"
           element={

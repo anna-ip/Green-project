@@ -52,7 +52,8 @@ module.exports = {
   ],
   devServer: {
     static: "./build",
-    hot: false,
+    // hot: false,
+    hot: true,
     historyApiFallback: true, //for react-router
     // inline: true,
     // transportMode: "ws",

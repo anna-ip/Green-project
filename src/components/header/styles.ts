@@ -5,7 +5,7 @@ import backgroundImageSmallDevice from "../../images/shape-5.svg";
 const tabletUp = "min-width: 768px";
 const desktopUp = "min-width: 1200px";
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.header`
   display: flex;
   position: relative;
 `;

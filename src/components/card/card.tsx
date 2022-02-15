@@ -11,39 +11,63 @@ import {
   Image,
   Container,
 } from "./styles";
-import { MediaStackNews } from "../hooks/types/techNewsTypes";
+import { NYTNews, SearchNews } from "../hooks/types/fetchNewsTypes";
 
 const Card = (props: CardProps) => {
-  const { result } = props;
+  const { result, response } = props;
 
   return (
     <CardWrapper>
       <FlipCardInner>
-        <FlipCardFront>
-          <Container>
-            <Title>{result.title}</Title>
-            {result.media.map((meta) => (
+        {result && (
+          <FlipCardFront>
+            <Container>
+              <Title>{result.title}</Title>
+              {result.media.map((meta) => (
+                <Image
+                  key={meta.caption}
+                  src={meta["media-metadata"][1]?.url}
+                  alt={meta.caption}
+                />
+              ))}
+            </Container>
+            <Author>{result.byline}</Author>
+          </FlipCardFront>
+        )}
+        {response && (
+          <FlipCardFront>
+            <Container>
+              <Title>{response?.headline?.main}</Title>
               <Image
-                key={meta.caption}
-                src={meta["media-metadata"][1].url}
-                alt={meta.caption}
+                src={`https://static01.nyt.com/${response?.multimedia[0]?.url}`}
+                alt={response.multimedia[0].caption}
               />
-            ))}
-          </Container>
-          <Author>{result.byline}</Author>
-        </FlipCardFront>
-        <FlipCardBack>
-          <Article>{result.abstract}</Article>
-          <Author>{result.byline}</Author>
-          <LinkToNYT href={result.url}>{result.url}</LinkToNYT>
-        </FlipCardBack>
+            </Container>
+            <Author>{response?.byline?.original}</Author>
+          </FlipCardFront>
+        )}
+        {result && (
+          <FlipCardBack>
+            <Article>{result.abstract}</Article>
+            <Author>{result.byline}</Author>
+            <LinkToNYT href={result.url}>{result.url}</LinkToNYT>
+          </FlipCardBack>
+        )}
+        {response && (
+          <FlipCardBack>
+            <Article>{response.abstract}</Article>
+            <Author>{response.byline.original}</Author>
+            <LinkToNYT href={response.web_url}>{response.web_url}</LinkToNYT>
+          </FlipCardBack>
+        )}
       </FlipCardInner>
     </CardWrapper>
   );
 };
 
 interface CardProps {
-  result: MediaStackNews;
+  result?: NYTNews;
+  response?: SearchNews;
 }
 
 export default Card;

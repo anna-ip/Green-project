@@ -4,7 +4,7 @@ const mobile = "max-width: 767px";
 const tabletUp = "min-width: 768px";
 const desktopUp = "min-width: 1200px";
 
-export const Container = styled.div`
+export const Container = styled.footer`
   display: flex;
   justify-content: center;
   min-height: 50px;

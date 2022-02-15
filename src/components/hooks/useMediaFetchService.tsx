@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuery } from "react-query";
 
 const fetchArticles = async () => {
@@ -12,7 +11,7 @@ const useMediaFetchService = () => {
   return useQuery("articles", fetchArticles, {
     refetchOnWindowFocus: false,
     refetchOnMount: false,
-  }); //? add select to destruct data => data.docs
+  });
 };
 
 export default useMediaFetchService;
