@@ -4,14 +4,13 @@ import Card from "./Card";
 import { CardContainer, ErrorText } from "./styles";
 
 const CardSection: React.FC<CardSectionProps> = (props) => {
-  const { isLoading, status, data, error } = props;
+  const { status, data, error } = props;
 
   return (
     <>
-      {isLoading && <div>Loading...</div>}
       <CardContainer>
         {status === "success" &&
-          data.results.map((result: any) => (
+          data?.results?.map((result: any) => (
             <div key={result.id}>
               <Card result={result} />
             </div>
@@ -26,7 +25,6 @@ type StatusType = "idle" | "error" | "loading" | "success";
 
 interface CardSectionProps {
   data: FetchResults;
-  isLoading: Boolean;
   status: StatusType;
   error: any;
 }

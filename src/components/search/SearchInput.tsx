@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Input } from "./styles";
+import React from "react";
+import { Input, SearchContainer } from "./styles";
 
 const SearchInput = (props: InputProps) => {
   return (
-    <>
+    <SearchContainer>
       <Input
         type="search"
         name={props.name}
@@ -11,14 +11,14 @@ const SearchInput = (props: InputProps) => {
         placeholder="Search article"
         onChange={props.onChange}
       ></Input>
-    </>
+    </SearchContainer>
   );
 };
 
 interface InputProps {
   name: string;
-  value: string;
-  onChange(event: React.FormEvent<HTMLInputElement>): void;
+  value: string | undefined;
+  onChange?(event: React.ChangeEvent<HTMLInputElement>): void;
 }
 
 export { SearchInput };

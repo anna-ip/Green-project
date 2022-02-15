@@ -53,6 +53,7 @@ module.exports = {
   devServer: {
     static: "./build",
     hot: false,
+    historyApiFallback: true, //for react-router
     // inline: true,
     // transportMode: "ws",
     // injectClient: false,

@@ -1,11 +1,5 @@
 import React from "react";
 import { useQuery } from "react-query";
-// import { MediaStackNews } from "./types/techNewsTypes";
-//import { Service } from "./types/service";
-
-// export interface News {
-//   results: MediaStackNews[];
-// }
 
 const fetchArticles = async () => {
   const key = process.env.REACT_APP_NYT_API_KEY;
@@ -15,17 +9,10 @@ const fetchArticles = async () => {
   return res.json();
 };
 const useMediaFetchService = () => {
-  //const [result, setResult] = useState< Service <News> > ({ status: "loading" });
-  return useQuery("articles", fetchArticles); //? add select to destruct data => data.docs
-
-  // useEffect(() => {
-  //   fetch(url)
-  //   .then(res => res.json())
-  //   .then(res => setResult({status: 'loaded', payload: res}))
-  //   .catch(error => setResult({status: 'error', error}))
-  // }, []);
-
-  // return result;
+  return useQuery("articles", fetchArticles, {
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
+  }); //? add select to destruct data => data.docs
 };
 
 export default useMediaFetchService;

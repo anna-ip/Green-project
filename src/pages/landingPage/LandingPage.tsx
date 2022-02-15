@@ -1,24 +1,15 @@
 import React from "react";
-import useMediaFetchService from "../../components/hooks/useMediaFetchService";
-import { Footer } from "../../components/footer/Footer";
-import { Header } from "../../components/header";
 import { CardSection } from "../../components/card/CardSection";
 import { Wrapper } from "./styles";
 
-const LandingPage = () => {
-  const { data, status, isLoading, error, isFetching } = useMediaFetchService();
-  console.log(isFetching);
-  console.log("service:", data);
+const LandingPage = (props: any) => {
   return (
     <Wrapper>
-      <Header />
       <CardSection
-        data={data}
-        status={status}
-        isLoading={isLoading}
-        error={error}
+        data={props.data}
+        status={props.status}
+        error={props.error}
       />
-      <Footer text={"Footer"} />
     </Wrapper>
   );
 };
