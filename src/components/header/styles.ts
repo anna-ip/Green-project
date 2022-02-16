@@ -26,6 +26,14 @@ export const BackgroundImage = styled.div`
   }
 `;
 
+export const Nav = styled.nav`
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  width: 100%;
+  justify-content: flex-end;
+`;
+
 export const HeaderTitle = styled.h1`
   position: absolute;
   top: 55%;

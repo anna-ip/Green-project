@@ -9,7 +9,7 @@ const searchArticlesFetch = async (query: string) => {
 };
 
 const useSearchFetchService = (
-  onSuccess: (data: any) => void,
+  onSuccess: (data: []) => void,
   query: string
 ) => {
   return useQuery(

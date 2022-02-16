@@ -43,6 +43,7 @@ module.exports = {
     ],
   },
   devtool: prod ? undefined : "source-map",
+  target: "web",
 
   plugins: [
     new Dotenv({

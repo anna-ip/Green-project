@@ -1,5 +1,9 @@
 import React from "react";
-import { FetchResults } from "../hooks/types/fetchNewsTypes";
+import {
+  FetchResults,
+  NYTNews,
+  SearchNews,
+} from "../hooks/types/fetchNewsTypes";
 import Card from "./Card";
 import { CardContainer, ErrorText } from "./styles";
 
@@ -13,14 +17,14 @@ const CardSection: React.FC<CardSectionProps> = (props) => {
       <CardContainer>
         {status === "success" &&
           newsResult &&
-          newsResult?.map((result: any) => (
+          newsResult?.map((result: NYTNews) => (
             <div key={result.id}>
               <Card result={result} />
             </div>
           ))}
         {status === "success" &&
           searchResult &&
-          searchResult.map((response: any) => (
+          searchResult.map((response: SearchNews) => (
             <div key={response._id}>
               <Card response={response} />
             </div>
@@ -36,7 +40,7 @@ type StatusType = "idle" | "error" | "loading" | "success";
 interface CardSectionProps {
   data?: FetchResults;
   status?: StatusType;
-  error?: any;
+  error?: string;
 }
 
 export { CardSection };

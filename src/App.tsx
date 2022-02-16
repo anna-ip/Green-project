@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Link,
-  Route,
-  Router,
-  Routes,
-  Navigate,
-  useNavigate,
-} from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { Footer } from "./components/footer/Footer";
 import { Header } from "./components/header";
 import useMediaFetchService from "./components/hooks/useMediaFetchService";
@@ -14,37 +7,29 @@ import useSearchFetchService from "./components/hooks/useSearchFetchService";
 import { LandingPage } from "./pages/landingPage/LandingPage";
 import { SearchedArticlePage } from "./pages/landingPage/SearchedArticlePage";
 
-const onSuccess = (searchData: any) => {
-  console.log("Route to search page and display data", searchData);
-};
-
 //? Add routes SearchedArticlePage should have a search/${query} route
 const App = () => {
   const [query, setQuery] = useState("");
-
-  const { data, status, isLoading, error, isFetching } = useMediaFetchService();
+  const onSuccess = (searchData: []) => {
+    console.log("Route to search page and display data", searchData);
+    navigate("/search");
+  };
+  const { data, status, isLoading, error } = useMediaFetchService();
   const {
     data: searchData = [],
     status: searchStatus,
     isLoading: searchIsLoading,
     error: searchError,
-    isFetching: searchIsFetch,
   } = useSearchFetchService(onSuccess, query);
+  const navigate = useNavigate();
 
   console.log("landingPageArticles:", data);
 
-  console.log(
-    "searchedPageData:",
-    query,
-    searchData,
-    // searchIsLoading,
-    // searchIsFetch,
-    searchStatus
-    // searchError
-  );
+  console.log("searchedPageData:", query, searchData, searchStatus);
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
+
     return setQuery(event.currentTarget?.value);
   };
 
@@ -56,14 +41,7 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={
-            <LandingPage
-              data={data}
-              status={status}
-              isLoading={isLoading}
-              error={error}
-            />
-          }
+          element={<LandingPage data={data} status={status} error={error} />}
         />
 
         <Route

@@ -36,11 +36,6 @@ export interface SearchNews {
   _id: string;
   multimedia: MultimediaType[];
 }
-
-// export type SearchNewsDocs = {
-//   docs: SearchNews[],
-// };
-
 export interface FetchResults {
   results?: NYTNews[];
   docs?: SearchNews[];
