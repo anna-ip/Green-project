@@ -112,15 +112,20 @@ export const FlipCardBack = styled.div`
 export const Title = styled.h2`
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #585654;
   width: 100%;
   padding-right: 10px;
   margin: 0;
+
+  @media (tabletup) {
+    font-size: 1.2rem;
+  }
 `;
 export const Article = styled.h3`
   font-family: "Roboto", sans-serif;
   font-weight: 300;
+  font-size: 1rem;
   margin: 0;
 `;
 export const Author = styled.h5`
@@ -135,6 +140,7 @@ export const LinkToNYT = styled.a`
   color: #518d7a;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
+  font-size: 0.8rem;
 `;
 
 export const Image = styled.img`

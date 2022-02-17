@@ -9,12 +9,12 @@ const Header = (props: HeaderProps) => {
   return (
     <HeaderContainer>
       <Nav>
-     <Link to={'/'}>Home</Link> 
-      <SearchInput
-        name="query"
-        value={props.query}
-        onChange={props.handleSearch}
-      />
+        <Link to={'/'}>Home</Link> 
+        <SearchInput
+          name="query"
+          value={props.query}
+          onChange={props.handleSearch}
+        />
       </Nav>
       <BackgroundImage />
       <HeaderTitle>News</HeaderTitle>

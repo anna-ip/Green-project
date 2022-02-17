@@ -32,6 +32,7 @@ export const Nav = styled.nav`
   position: absolute;
   width: 100%;
   justify-content: flex-end;
+  margin: 15px 15px 0 0;
 `;
 
 export const HeaderTitle = styled.h1`

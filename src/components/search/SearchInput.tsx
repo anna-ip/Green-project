@@ -1,16 +1,19 @@
 import React from "react";
-import { Input, SearchContainer } from "./styles";
+import { Input, Label, SearchContainer, StyledInput} from "./styles";
 
 const SearchInput = (props: InputProps) => {
   return (
     <SearchContainer>
+      <Label htmlFor={props.name}>Search</Label>
+      <StyledInput />
       <Input
         type="search"
         name={props.name}
         value={props.value}
-        placeholder="Search article"
+        placeholder="Search"
         onChange={props.onChange}
-      ></Input>
+      />
+      {/* </StyledInput> */}
     </SearchContainer>
   );
 };
