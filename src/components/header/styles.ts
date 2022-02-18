@@ -43,13 +43,31 @@ export const Nav =
   top: 0px;
   justify-content: flex-end;
   @media (${tabletUp}) {
-  ${(p) => !p.isMobile && ``}
+  ${(p) =>
+    !p.isMobile &&
+    `
+  width: 100%;
+  `}
 
   }
 `;
+interface StyledLinkProps {
+  isMobile: Boolean;
+}
 
-export const StyledLink = styled(Link)`
+export const StyledLink =
+  styled(Link) <
+  StyledLinkProps >
+  `
   padding: 15px 15px 0 0;
+  @media (${tabletUp}) {
+  ${(p) =>
+    !p.isMobile &&
+    `
+    padding: 35px 15px 0 0;
+  `}
+
+  }
 `;
 
 export const HeaderTitle = styled.h1`

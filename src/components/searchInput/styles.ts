@@ -64,10 +64,16 @@ export const StyledInput = styled.div`
   border-radius: 8px;
 `;
 
-export const SearchContainer = styled.div`
+interface SearchContainerProps {
+  isMobile: Boolean;
+}
+export const SearchContainer =
+  styled.div <
+  SearchContainerProps >
+  `
   display: block;
 
-  /* max-width: 300px; */
+  max-width: 300px;
   position: absolute;
   top: 58%;
   left: 16px;
@@ -84,4 +90,14 @@ export const SearchContainer = styled.div`
     color: #ffffff;
     display: inline-block;
   }
+
+  ${(p) =>
+    !p.isMobile &&
+    `
+      width: 300px;
+      top: 20px;
+      left: unset;
+      right: 65px;
+  `}
+
 `;

@@ -3,7 +3,7 @@ import { Input, Label, SearchContainer, StyledInput} from "./styles";
 
 const SearchInput = (props: InputProps) => {
   return (
-    <SearchContainer>
+    <SearchContainer isMobile={props.isMobile}>
       <Label htmlFor={props.name}>Search</Label>
       <StyledInput />
       <Input
@@ -21,7 +21,7 @@ interface InputProps {
   name: string;
   value: string | undefined;
   onChange?(event: React.ChangeEvent<HTMLInputElement>): void;
-  isMobile?: Boolean;
+  isMobile: Boolean;
 }
 
 export { SearchInput };

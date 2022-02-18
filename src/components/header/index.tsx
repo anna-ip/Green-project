@@ -1,18 +1,18 @@
 import React from "react";
-import { SearchInput } from "../search/SearchInput";
+import { SearchInput } from "../searchInput/SearchInput";
 import { BackgroundImage, HeaderContainer, HeaderTitle, Nav, StyledIcon, StyledLink } from "./styles";
-
-// needs a navbar and styling
+import {isMobile} from '../../helper/isMobile'
 
 const Header = (props: HeaderProps) => {
-  let {isMobile = true} = props;
+  const mobile = isMobile();
+  console.log('isMobile', mobile)
   return (
     <HeaderContainer>
-      <Nav isMobile={isMobile} > 
-        {props.showLink && <StyledLink to={'/'}><StyledIcon/></StyledLink>}
-         { !isMobile && 
+      <Nav isMobile={mobile} > 
+        {props.showLink && <StyledLink to={'/'} isMobile={mobile}><StyledIcon/></StyledLink>}
+         { !mobile && 
           <SearchInput
-          isMobile={isMobile}
+          isMobile={mobile}
           name="query"
           value={props.query}
           onChange={props.handleSearch}
@@ -20,9 +20,9 @@ const Header = (props: HeaderProps) => {
       </Nav>
       <BackgroundImage />
       <HeaderTitle>News</HeaderTitle>
-      {isMobile && 
+      {mobile && 
       <SearchInput
-          isMobile={isMobile}
+          isMobile={mobile}
           name="query"
           value={props.query}
           onChange={props.handleSearch}
@@ -36,7 +36,6 @@ interface HeaderProps {
   query?: string | undefined;
   handleSearch?(event: React.ChangeEvent<HTMLInputElement>): void;
   showLink: Boolean;
-  isMobile?: Boolean;
 }
 
 export { Header };
