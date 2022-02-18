@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import backgroundImageDesktop from "../../images/shape-2.svg";
 import backgroundImageSmallDevice from "../../images/shape-5.svg";
+import home from "../../assets/home.svg";
 
 const tabletUp = "min-width: 768px";
 const desktopUp = "min-width: 1200px";
@@ -26,18 +28,33 @@ export const BackgroundImage = styled.div`
   }
 `;
 
-export const Nav = styled.nav`
+interface NavProps {
+  isMobile: Boolean;
+}
+export const Nav =
+  styled.nav <
+  NavProps >
+  `
   display: flex;
   flex-direction: row;
   position: absolute;
-  width: 100%;
+  right: 0px;
+  left: 0px;
+  top: 0px;
   justify-content: flex-end;
-  margin: 15px 15px 0 0;
+  @media (${tabletUp}) {
+  ${(p) => !p.isMobile && ``}
+
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  padding: 15px 15px 0 0;
 `;
 
 export const HeaderTitle = styled.h1`
   position: absolute;
-  top: 55%;
+  top: 40%;
   left: 16px;
   font-family: "Roboto", sans-serif;
   color: #f3f1ee;
@@ -52,4 +69,12 @@ export const HeaderTitle = styled.h1`
     font-size: 8rem;
     bottom: 90px;
   }
+`;
+
+export const StyledIcon = styled.svg`
+  background-image: url(${home});
+  background-repeat: none;
+  background-size: cover;
+  width: 2.5rem;
+  height: 2.5rem;
 `;

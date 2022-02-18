@@ -13,8 +13,7 @@ const SearchInput = (props: InputProps) => {
         placeholder="Search"
         onChange={props.onChange}
       />
-      {/* </StyledInput> */}
-    </SearchContainer>
+   </SearchContainer>
   );
 };
 
@@ -22,6 +21,7 @@ interface InputProps {
   name: string;
   value: string | undefined;
   onChange?(event: React.ChangeEvent<HTMLInputElement>): void;
+  isMobile?: Boolean;
 }
 
 export { SearchInput };

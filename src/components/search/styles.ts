@@ -1,7 +1,9 @@
 import styled, { css } from "styled-components";
+import close from "../../assets/close.svg";
 
 export const Label = styled.label`
   display: block;
+  /* width: 100%; */
   color: transparent;
   transform: translate(3px, -50%);
   pointer-events: none;
@@ -11,7 +13,7 @@ export const Label = styled.label`
 `;
 
 const inputSize = css`
-  width: 200px;
+  width: 95%;
   height: 25px;
 `;
 
@@ -31,10 +33,9 @@ export const Input = styled.input`
   }
   ::-webkit-search-cancel-button {
     -webkit-appearance: none;
-    /* Add  background-image: url(icon)  */
-    height: 10px;
-    width: 10px;
-    background: white;
+    background-image: url(${close});
+    height: 1em;
+    width: 1em;
   }
   &:focus {
     left: 0;
@@ -49,9 +50,12 @@ export const StyledInput = styled.div`
   display: flex;
   align-items: center;
   ${inputSize}
+  /* width: 100%; */
   /* To position so it want jump when label is displayed */
   position: absolute;
   top: 10px;
+  right: 0px;
+  left: 0px;
   padding: 10px 8px 10px 12px;
   background-color: #ffffff;
   opacity: 0.2;
@@ -61,12 +65,14 @@ export const StyledInput = styled.div`
 `;
 
 export const SearchContainer = styled.div`
-  margin-left: 10px;
   display: block;
-  width: 100%;
-  max-width: 300px;
-  height: 100%;
-  position: relative;
+
+  /* max-width: 300px; */
+  position: absolute;
+  top: 58%;
+  left: 16px;
+  right: 0px;
+  margin: 0 15px 0 10px;
 
   input {
     padding: 0;

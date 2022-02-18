@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { Footer } from "./components/footer/Footer";
 import { Header } from "./components/header";
@@ -20,6 +20,7 @@ const App = () => {
     status: searchStatus,
     isLoading: searchIsLoading,
     error: searchError,
+    isSuccess: isSearchSuccess,
   } = useSearchFetchService(onSuccess, query);
   const navigate = useNavigate();
 
@@ -27,15 +28,19 @@ const App = () => {
 
   console.log("searchedPageData:", query, searchData, searchStatus);
 
+  // TODO Handle reset input value without refetch.
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>): void => {
     event.preventDefault();
-
-    return setQuery(event.currentTarget?.value);
+    setQuery(event.currentTarget?.value);
   };
 
   return (
     <>
-      <Header query={query} handleSearch={handleSearch} />
+      <Header
+        query={query}
+        handleSearch={handleSearch}
+        showLink={isSearchSuccess}
+      />
       {isLoading && <div>Loading...</div>}
       {searchIsLoading && <div>Search is loading...</div>}
       <Routes>
