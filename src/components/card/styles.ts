@@ -35,7 +35,7 @@ export const CardWrapper = styled.div`
   flex-direction: column;
   justify-content: space-around;
   border-radius: 8px 0px 0px 40px;
-  padding: 15px 15px 15px 25px;
+  padding: 25px 15px 15px 25px;
   margin: 0 8px 0 15px;
   min-height: 200px;
   cursor: pointer;
@@ -47,10 +47,10 @@ export const CardWrapper = styled.div`
       position: absolute;
       top: -40px;
       right: 8px;
-      height: 40px;
+      height: 41px;
       width: 40px;
       border-bottom-right-radius: 50%;
-      box-shadow: 0 20px 0 0 #edf3ef;
+      box-shadow: 0.6px 20px 0 0 #edf3ef;
     }
   }
 
@@ -71,9 +71,12 @@ export const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: end;
+ 
 
   @media (${tabletUp}) {
     flex-direction: column;
+    height: 100%;
+    padding-bottom: 1rem;
   }
 `;
 
@@ -115,7 +118,6 @@ export const Title = styled.h2`
   font-size: 1rem;
   color: #585654;
   width: 100%;
-  padding-right: 10px;
   margin: 0;
 
   @media (tabletup) {
